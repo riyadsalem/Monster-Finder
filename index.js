@@ -1,25 +1,32 @@
-showMonsters();
-function showMonsters() {
+import { monsters } from "./monsters.js";
+//console.log(monsters);
+
+for (let monsterdiv of monsters) {
+  showMonsters(monsterdiv);
+}
+
+// showMonsters();
+function showMonsters(monsterdiv) {
   const monster = document.createElement("div");
   monster.className = "monster";
 
   const img = document.createElement("img");
-  img.src = "https://robohash.org/6?set=set2";
-  img.alt = "Riyad Salem";
+  img.src = `https://robohash.org/${monsterdiv.id}?set=set2`;
+  img.alt = monsterdiv.name;
 
   const name = document.createElement("p");
   name.className = "name";
-  name.innerText = "Riyad Salem";
+  name.innerText = monsterdiv.name;
 
   const email = document.createElement("p");
   email.className = "email";
-  email.innerText = "riyad.m.salem.19988@gmail.com";
+  email.innerText = monsterdiv.email;
 
   monster.append(img, name, email);
 
   document.querySelector(".monsters").append(monster);
 
-  console.log(monster);
+  // console.log(monster);
 }
 
 notFoudn();
@@ -37,6 +44,5 @@ function notFoudn() {
   notFoundDiv.append(span, h1);
 
   // document.querySelector(".monsters").append(notFoundDiv);
-
-  console.log(notFoundDiv);
+  //console.log(notFoundDiv);
 }
