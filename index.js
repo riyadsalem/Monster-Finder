@@ -46,3 +46,27 @@ function notFoudn() {
   // document.querySelector(".monsters").append(notFoundDiv);
   //console.log(notFoundDiv);
 }
+
+document
+  .getElementById("search-monster")
+  .addEventListener("keyup", function (e) {
+    const keyword = e.target.value.toLowerCase();
+    // console.log(e);
+    // console.log(keyword);
+
+    const findmonster = document.querySelectorAll(".monster");
+    // console.log(findmonster);
+
+    for (let monster of findmonster) {
+      console.log(monster.children);
+      const name = monster.children[1].innerText.toLowerCase();
+      const email = monster.children[2].innerText.toLowerCase();
+
+      if (name.includes(keyword) || email.includes(keyword)) {
+        // console.log("done");
+        monster.style.display = "block";
+      } else {
+        monster.style.display = "none";
+      }
+    }
+  });
