@@ -43,7 +43,7 @@ function notFoudn() {
 
   notFoundDiv.append(span, h1);
 
-  // document.querySelector(".monsters").append(notFoundDiv);
+  document.querySelector(".monsters").append(notFoundDiv);
   //console.log(notFoundDiv);
 }
 
@@ -57,16 +57,24 @@ document
     const findmonster = document.querySelectorAll(".monster");
     // console.log(findmonster);
 
+    let notFound = true;
+
     for (let monster of findmonster) {
-      console.log(monster.children);
       const name = monster.children[1].innerText.toLowerCase();
+
       const email = monster.children[2].innerText.toLowerCase();
 
       if (name.includes(keyword) || email.includes(keyword)) {
-        // console.log("done");
         monster.style.display = "block";
+        notFound = false;
       } else {
         monster.style.display = "none";
       }
+    }
+
+    if (notFound) {
+      document.querySelector(".not-found").style.display = "block";
+    } else {
+      document.querySelector(".not-found").style.display = "none";
     }
   });
